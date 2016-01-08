@@ -35,7 +35,7 @@ for r = 1:numel(ALLEEG)
     end
     
     [ALLEEG EEG CURRENTSET] = pop_newset(ALLEEG, EEG, CURRENTSET,'retrieve',r,'study',0);
-    EEG = pop_eegfilt( EEG, 0, params.lowpassCutoff, [6], [0], 0, 0, 'fir1', 1);
+    EEG = pop_eegfilt( EEG, 0, params.lowpassCutoff, [6], [0], 0);
     EEG = eeg_checkset( EEG );
     eeglab redraw;
 
