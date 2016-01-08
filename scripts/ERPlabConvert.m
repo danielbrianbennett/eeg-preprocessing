@@ -114,9 +114,7 @@ end
             EVENTLIST.eventinfo(1,eventNumber).codelabel = '""'; % and so is its codelabel
             EVENTLIST.eventinfo(1,eventNumber).bini = -1; % if not in a bin, set bini to -1
             EVENTLIST.eventinfo(1,eventNumber).bepoch = 0; % if not in a bin, set bepoch to 0
-        elseif sum(binTest) > 1 % the event is included in more than one bin
-            error('Error: more than one bin type detected for event %.0f.', eventNumber)
-        elseif sum(binTest) == 1 % if the event is in one and only one bin
+        else
             EVENTLIST.eventinfo(1,eventNumber).code = compatibilityParams.binNumber(find(binTest)); % numeric bin number
             EVENTLIST.eventinfo(1,eventNumber).binlabel = compatibilityParams.binDescription{find(binTest)}; % and its binlabel is a string like this
             EVENTLIST.eventinfo(1,eventNumber).codelabel = compatibilityParams.binDescription{find(binTest)}; % and so is its codelabel
