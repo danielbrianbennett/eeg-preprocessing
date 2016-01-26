@@ -57,7 +57,7 @@ for r = whichRuns
     
     if isempty(endIndex)
         if r < whichRuns(end)
-            runEnd = EEG.event(onsetIndex(r+1)-1).latency / EEG.srate;
+            runEnd = (EEG.event(onsetIndex(r+1)).latency / EEG.srate) - .1;
         else runEnd = EEG.event(end).latency / EEG.srate;
         end
     else
