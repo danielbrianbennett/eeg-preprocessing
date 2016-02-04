@@ -35,7 +35,7 @@ for r = 1:numel(ALLEEG)
     end
     
     [ALLEEG EEG CURRENTSET] = pop_newset(ALLEEG, EEG, CURRENTSET,'retrieve',r,'study',0);
-    EEG.data = iirfilt( EEG.data, EEG.srate, min(params.notchCutoff), max(params.notchCutoff), 0, 0, 1, 0.0025, 40, 'on' );
+    EEG = pop_eegfiltnew(EEG, min(params.notchCutoff), max(params.notchCutoff), [], 1, [], 0);
     EEG = eeg_checkset( EEG );
     eeglab redraw;
 
